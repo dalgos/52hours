@@ -1,12 +1,20 @@
 import * as React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
 
 import App from 'container/App'
 
-window.addEventListener('DOMContentLoaded', () => {
-  const root = document.querySelector('#app')
-  render(
-    <App />,
-    root
+// import 'scss'
+
+const render = (Component: React.ComponentType) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.querySelector('#app')
   )
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  render(App)
 })
